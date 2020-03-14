@@ -1,0 +1,8 @@
+@import "./base.css";
+
+.m-10 {
+   margin: 10px; 
+}
+.radius-10 {
+    border-radius: 10px;
+}
