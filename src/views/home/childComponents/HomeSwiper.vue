@@ -1,14 +1,12 @@
 <template>
   <!-- 轮播图 开始 -->
-  <div class="swiper">
-    <swiper>
-      <swiper-item v-for="(item,index) in banner" :key="index">
-        <a :href="item.link">
-          <img :src="item.image" alt @load="ImgLoad" />
-        </a>
-      </swiper-item>
-    </swiper>
-  </div>
+  <swiper>
+    <swiper-item v-for="(item,index) in banner" :key="index">
+      <a :href="item.link">
+        <img :src="item.image" alt @load="ImgLoad" />
+      </a>
+    </swiper-item>
+  </swiper>
 
   <!-- 轮播图 结束-->
 </template>

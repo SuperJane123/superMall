@@ -14,7 +14,7 @@ export default {
 #tab-bar {
   display: flex;
   position: fixed;
-  z-index: 99;
+  z-index: 10;
   bottom: 0;
   left: 0;
   right: 0;

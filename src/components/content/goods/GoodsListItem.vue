@@ -1,8 +1,8 @@
 <template>
 <!-- 每个商品 -->
-  <div class="goods-list-item">
+  <div class="goods-list-item" @click="itemClick">
       <div class="goods-img">
-          <img :src="goodsItem.show.img" alt="" @load="upLoadImg">
+          <img :src="showImage" alt="" @load="upLoadImg">
       </div>
       <div class="goods-info">
           <p class="goods-title">{{goodsItem.title}}</p>
@@ -27,8 +27,19 @@ export default {
   methods: {
       upLoadImg(){  //图片加载完就会触发的函数
           this.$bus.$emit("upLoadImg")
+      },
+      itemClick(){
+          console.log("点击详情")
+          this.$router.push({path:"/detail",query:{id: this.goodsItem.iid}})
+
       }
   },
+
+  computed: {
+     showImage(){
+        return this.goodsItem.img || this.goodsItem.image || this.goodsItem.show.img;
+      }
+  }
 };
 </script>
 <style scoped>

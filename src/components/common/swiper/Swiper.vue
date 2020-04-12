@@ -50,7 +50,7 @@
 
         // 2.开启定时器
         this.startTimer();
-      }, 50)
+      }, 250)
     },
     methods: {
 		  /**
