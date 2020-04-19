@@ -11,24 +11,24 @@ Vue.use(VueRouter)
 
 // 2.创建路由对象
 const routes = [{
-  path: "",
-  redirect: "/home",
-}, {
-  path: "/home",
-  component: Home
-}, {
-  path: "/category",
-  component: Category
-}, {
-  path: "/cart",
-  component: Cart
-}, {
-  path: "/crofile",
-  component: Profile
-},{
-  path: "/detail",
-  component: Detail
-}
+    path: "",
+    redirect: "/home",
+  }, {
+    path: "/home",
+    component: Home
+  }, {
+    path: "/category",
+    component: Category
+  }, {
+    path: "/cart",
+    component: Cart
+  }, {
+    path: "/crofile",
+    component: Profile
+  }, {
+    path: "/detail",
+    component: Detail
+  },
 ]
 const router = new VueRouter({
   routes

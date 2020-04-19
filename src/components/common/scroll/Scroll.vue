@@ -51,6 +51,7 @@ export default {
     },
 
     reFresh() {
+      console.log("重新计算高度")
       this.scroll && this.scroll.refresh();
     },
     finishPullUp(){

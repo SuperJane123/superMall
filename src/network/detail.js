@@ -19,7 +19,7 @@ export function getRecommend(){
 /*商品详情数据*/
 export class Goods {
   constructor(itemInfo, columns, services) {
-    this.titel = itemInfo.title
+    this.title = itemInfo.title
     this.desc = itemInfo.desc
     this.newPrice = itemInfo.price
     this.oldPrice = itemInfo.oldPrice

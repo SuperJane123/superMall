@@ -10,7 +10,7 @@
       <detail-comment-info ref="comment" :commentInfo="commentInfo" />
       <goods-list ref="recommend" :goodsList="recommends" />
     </Scroll>
-    <detail-bottom-bar />
+    <detail-bottom-bar @addToCart="addToCart" />
 
     <!-- 返回顶部按钮 -->
     <BackTop @click.native="handlebackTop" v-show="is_show_backTop" />
@@ -31,7 +31,10 @@ import Scroll from "components/common/scroll/Scroll";
 import GoodsList from "components/content/goods/GoodsList";
 
 import { debounce } from "common/utils";
-import { itemListenerMixin,backTop } from "common/mixin";
+import { itemListenerMixin, backTop } from "common/mixin";
+
+import {mapActions} from "vuex"
+
 
 import {
   getDetail,
@@ -40,6 +43,7 @@ import {
   GoodsParam,
   getRecommend
 } from "network/detail";
+
 export default {
   name: "Detail", //如果在keepalive中使用incule/excuel 需要配置name
 
@@ -70,11 +74,29 @@ export default {
     GoodsList,
     Scroll
   },
-  mixins: [itemListenerMixin,backTop],
+  mixins: [itemListenerMixin, backTop],
   methods: {
+    ...mapActions(['addCart']),
+    //子组件方法
+    // 添加购物车
+    addToCart() {
+      // 1.获取购物车所需的信息
+      console.log("detail,添加购物车");
+      const produc = {};
+      produc.image = this.topImages[0];
+      produc.title = this.goodsInfo.title;
+      produc.desc = this.goodsInfo.desc;
+      produc.price = this.goodsInfo.realPrice;
+      produc.iid = this.iid;
+      // this.$store.commit('addCart',produc)
+      this.addCart(produc).then(res =>{
+        console.log(res)
+      })
+    },
+
     //监听滚动事件
     contentScroll(position) {
-      this.listenShowBackTop(position)
+      this.listenShowBackTop(position);
     },
 
     // 获取详情数据
